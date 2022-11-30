@@ -2,6 +2,15 @@
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+import { googleAuth } from "./components/helpers/googleAuth";
+
+
+export const userStorage = localStorage.getItem('capstone-user')
+export const userObj = JSON.parse(userStorage)
+
+export const onSubmitLoginGoogle = async (navigate) => {
+  googleAuth.signInRegister(navigate);
+};
 // Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyCaM2aE6iEOO7isKlrpsKFzc43mKZVrZGs",
@@ -11,3 +20,4 @@ export const firebaseConfig = {
   messagingSenderId: "137096588044",
   appId: "1:137096588044:web:63668f290f895aa5cdf729"
 };
+

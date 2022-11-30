@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { googleAuth } from "../helpers/googleAuth";
-import { emailAuth } from "../helpers/emailAuth";
-import "./Login.css";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -11,12 +9,6 @@ export const Register = () => {
     password: "",
   });
   let navigate = useNavigate();
-
-  // Register with email and password
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    emailAuth.register(user, navigate);
-  };
 
   const updateUser = (evt) => {
     const copy = { ...user };
@@ -31,7 +23,7 @@ export const Register = () => {
 
   return (
     <main style={{ textAlign: "center" }}>
-      <form className="form--login" onSubmit={handleRegister}>
+      <form className="form--login">
         <h1 className="h3 mb-3 font-weight-normal">Please Register</h1>
         <fieldset>
           <label htmlFor="fullName"> Full Name </label>

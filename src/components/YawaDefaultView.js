@@ -1,9 +1,27 @@
 import * as React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { AuthorizedUserNav } from './nav/AuthorizedUserNav';
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import { Authorized } from './Views/Authorized';
 
 export const YawaDefaultView = () => {
+
     return (
-        <div>
-            
-        </div>
+        <Routes>
+      <Route path="/login" element={<Login />} />
+      {/* <Route path="/register" element={<Register />} /> */}
+
+      <Route
+        path="*"
+        element={
+          <Authorized>
+            <>
+              <AuthorizedUserNav />
+            </>
+          </Authorized>
+        }
+      />
+    </Routes>
     )
 }

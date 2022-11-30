@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { emailAuth } from "../helpers/emailAuth";
 import { googleAuth } from "../helpers/googleAuth";
-import "./Login.css";
 
 export const Login = () => {
   const [login, setLogin] = useState({
@@ -25,14 +23,14 @@ export const Login = () => {
 //   };
 
   // Login with Google
-  const onSubmitLoginGoogle = async () => {
+ const onSubmitLoginGoogle = async () => {
     googleAuth.signInRegister(navigate);
   };
 
   return (
     <main className="container--login">
       <section>
-        <form className="form--login" onSubmit={onSubmitLoginEmail}>
+        <form className="form--login">
           <h1>Yawa</h1>
           <h2>Please sign in</h2>
           <fieldset>

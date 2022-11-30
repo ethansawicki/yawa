@@ -13,6 +13,9 @@ import {
     signInRegister: function(navigate) {
       return new Promise((res) => {
         const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({
+          prompt: 'select_account'
+        })
         const auth = getAuth();
         signInWithPopup(auth, provider)
           .then((userCredential) => {

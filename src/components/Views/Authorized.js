@@ -1,4 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
+import { Unauthorized } from "./Unauthorized";
 
 export const Authorized = ({ children }) => {
   const location = useLocation();
@@ -7,7 +8,7 @@ export const Authorized = ({ children }) => {
     return children;
   } else {
     return (
-      <Navigate to={`/login/${location.search}`} replace state={{ location }} />
+      <Unauthorized />
     );
   }
 };
