@@ -21,3 +21,4 @@ export const firebaseConfig = {
   appId: "1:137096588044:web:63668f290f895aa5cdf729"
 };
 
+export const weatherAPI = `c1842519b17b087cdfd461b1eb8a609b`

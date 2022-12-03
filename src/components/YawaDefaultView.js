@@ -4,6 +4,7 @@ import { AuthorizedUserNav } from './nav/AuthorizedUserNav';
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import { Authorized } from './Views/Authorized';
+import { CurrentLocation } from './currentLocation/CurrentLocation';
 
 export const YawaDefaultView = () => {
 
@@ -18,6 +19,7 @@ export const YawaDefaultView = () => {
           <Authorized>
             <>
               <AuthorizedUserNav />
+              <CurrentLocation />
             </>
           </Authorized>
         }
