@@ -5,7 +5,7 @@ import {BrowserRouter} from "react-router-dom"
 import firebase from "firebase/compat/app"
 import  CssBaseline  from '@mui/material/CssBaseline';
 import { firebaseConfig } from "./apiKeys"
-import { YawaDefaultView } from './components/YawaDefaultView';
+import { YawaUserCheck } from './YawaUserCheck';
 firebase.initializeApp(firebaseConfig)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +13,7 @@ root.render(
   <BrowserRouter>
     <CssBaseline />
     <React.StrictMode>
-      <YawaDefaultView />
+      <YawaUserCheck />
     </React.StrictMode>
   </BrowserRouter>
 );

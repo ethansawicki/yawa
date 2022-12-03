@@ -1,16 +1,6 @@
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
-import { googleAuth } from "./components/helpers/googleAuth";
-
-
-export const userStorage = localStorage.getItem('capstone-user')
-export const userObj = JSON.parse(userStorage)
-
-export const onSubmitLoginGoogle = async (navigate) => {
-  googleAuth.signInRegister(navigate);
-};
 // Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyCaM2aE6iEOO7isKlrpsKFzc43mKZVrZGs",
@@ -21,4 +11,6 @@ export const firebaseConfig = {
   appId: "1:137096588044:web:63668f290f895aa5cdf729"
 };
 
-export const weatherAPI = `c1842519b17b087cdfd461b1eb8a609b`
+export const openWeatherAPI = `c1842519b17b087cdfd461b1eb8a609b`
+
+export const visualCrossingAPI = `VXWFW7AVK6SL6F9QYNSB2PXTT`

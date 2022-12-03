@@ -6,10 +6,11 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import { googleAuth } from '../helpers/googleAuth';
 
-export const UnauthorizedUserNav = () => {
-  const navigate = useNavigate()
 
-  const onSubmitLoginGoogle = async () => {
+export const UnauthorizedUserNav = () => {
+  const navigate = useNavigate();
+  // Login with Google
+ const onSubmitLoginGoogle = async () => {
     googleAuth.signInRegister(navigate);
   };
 
@@ -19,7 +20,7 @@ export const UnauthorizedUserNav = () => {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
-          <Button color="inherit" onClick={() => {onSubmitLoginGoogle()}}>Login</Button>
+          <Button color="inherit" onClick={() => {onSubmitLoginGoogle()}} >Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

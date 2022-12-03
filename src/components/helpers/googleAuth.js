@@ -4,6 +4,8 @@ import {
     GoogleAuthProvider,
     signOut,
   } from "firebase/auth";
+import { YawaUserCheck } from "../../YawaUserCheck";
+import { YawaLoggedIn } from "../YawaLoggedInView";
   
   // SignIn brings up the google sign in pop up AND works
   // for both signing in AND registering a user
@@ -29,7 +31,6 @@ import {
             localStorage.setItem("capstone_user", JSON.stringify(userAuth));
             // Navigate us back home
             navigate("/");
-            console.log("you did it");
           })
           .catch((error) => {
             console.log("Google Sign In Error");
@@ -47,7 +48,7 @@ import {
           // Remove user from localStorage
           localStorage.removeItem("capstone_user");
           // Navigate us back home
-          navigate("/");
+          navigate('/');
           console.log("Sign Out Success!");
         })
         .catch((error) => {

@@ -9,5 +9,5 @@ export const logout = {
     if (userRecord.type === "google") {
       googleAuth.signOut(navigate);
     }
-  },
+  }
 };
