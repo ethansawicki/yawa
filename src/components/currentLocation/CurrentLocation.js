@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import  ReactWeather,{ useVisualCrossing } from 'react-open-weather'
-import { openWeatherAPI, visualCrossingAPI } from '../../apiKeys'
+import { visualCrossingAPI } from '../../apiKeys'
 
 export const CurrentLocation = () => {
     const [lat, setLat] = useState(null)
@@ -38,7 +38,6 @@ export const CurrentLocation = () => {
         []
     )
     getLocation()
-    console.log(location)
   return (
     <div>
         <ReactWeather 

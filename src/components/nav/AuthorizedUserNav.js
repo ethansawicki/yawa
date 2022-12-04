@@ -20,8 +20,8 @@ export const AuthorizedUserNav = () => {
       <AppBar position="static">
         <Toolbar>
           <Link className='link' to='/'><Button color='inherit'>Current Conditions</Button></Link>
-          <Link className='link' to='/Radar'><Button color='inherit'>Radar</Button></Link>
-          <Link className='link' to='/MyLocations'><Button color='inherit'>My Locations</Button></Link>
+          <Link className='link' to='/History'><Button color='inherit'>Current Location History</Button></Link>
+          <Link className='link' to='/SavedLocations'><Button color='inherit'>My Locations</Button></Link>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           <Button color="inherit" onClick={() => {onSubmitLogoutGoogle()}}>Logout</Button>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import { CurrentLocation } from '../currentLocation/CurrentLocation'
-import { Radar } from '../Radar/Radar'
+import { CurrentLocationHistory } from '../currentLocation/CurrentLocationHistory'
 import { SavedLocations } from '../SavedLocations/SavedLocations'
 
 export const LoggedInView = () => {
@@ -13,8 +13,8 @@ export const LoggedInView = () => {
                 <Outlet />
             </>
         }></Route>
-        <Route path='MyLocations' element={<SavedLocations />} />
-        <Route path='History' element={<Radar />} />
+        <Route path='SavedLocations' element={<SavedLocations />} />
+        <Route path='History' element={<CurrentLocationHistory />} />
     </Routes>
   )
 }
