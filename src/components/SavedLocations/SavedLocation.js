@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from '@mui/material';
 import React from 'react'
 import  ReactWeather, { useVisualCrossing } from 'react-open-weather'
 import { visualCrossingAPI } from '../../apiKeys'
@@ -12,17 +13,42 @@ export const SavedLocation = ({location}) => {
         unit: 'us', // values are (metric,us,uk)
       });
 
+      const customStyles = {
+        fontFamily:  'Helvetica, sans-serif',
+        gradientStart:  '#0181C2',
+        gradientMid:  '#04A7F9',
+        gradientEnd:  '#4BC4F7',
+        locationFontColor:  '#FFF',
+        todayTempFontColor:  '#FFF',
+        todayDateFontColor:  '#B5DEF4',
+        todayRangeFontColor:  '#B5DEF4',
+        todayDescFontColor:  '#B5DEF4',
+        todayInfoFontColor:  '#B5DEF4',
+        todayIconColor:  '#FFF',
+        forecastBackgroundColor:  '#FFF',
+        forecastSeparatorColor:  '#DDD',
+        forecastDateColor:  '#777',
+        forecastDescColor:  '#777',
+        forecastRangeColor:  '#777',
+        forecastIconColor:  '#4BC4F7',
+    };
+
   return (
-    <div>
+    <div className='weather-widget'>
         <h1>{location.locationSavedName}</h1>
         <ReactWeather
               data={data}
+              theme={customStyles}
               lang="en"
               locationLabel={`${location.locationName}`}
               unitsLabels={{temperature: "F", windSpeed: 'Mph'}}
               showForcast
               type='auto'
             />
+        <ButtonGroup variant='contained'className='btn-group'>
+            <Button>Edit</Button>
+            <Button>Delete</Button>
+        </ButtonGroup>
     </div>
   )
 }

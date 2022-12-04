@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const CurrentLocationHistory = () => {
+export const LocationHistory = () => {
   return (
     <div>CurrentLocationHistory</div>
   )

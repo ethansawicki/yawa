@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SavedLocation } from './SavedLocation'
+import { Box } from '@mui/material';
 
 
 export const SavedLocations = () => {
@@ -19,7 +20,7 @@ export const SavedLocations = () => {
   )
 
   return (
-    <div>
+    <Box>
       {
         savedLocation.map((location) => {
           return (
@@ -27,6 +28,6 @@ export const SavedLocations = () => {
           )
         })
       }
-    </div>
+    </Box>
   )
 }

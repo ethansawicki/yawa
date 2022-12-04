@@ -1,8 +1,9 @@
 import React from 'react'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import { CurrentLocation } from '../currentLocation/CurrentLocation'
-import { CurrentLocationHistory } from '../currentLocation/CurrentLocationHistory'
+import { LocationHistory } from '../currentLocation/LocationHistory'
 import { SavedLocations } from '../SavedLocations/SavedLocations'
+import { SearchLocations } from '../SearchLocations/SearchLocations'
 
 export const LoggedInView = () => {
   return (
@@ -14,7 +15,8 @@ export const LoggedInView = () => {
             </>
         }></Route>
         <Route path='SavedLocations' element={<SavedLocations />} />
-        <Route path='History' element={<CurrentLocationHistory />} />
+        <Route path='History' element={<LocationHistory />} />
+        <Route path='/SearchLocations' element={<SearchLocations />}/>
     </Routes>
   )
 }

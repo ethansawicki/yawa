@@ -32,7 +32,6 @@ export const CurrentLocation = () => {
     useEffect(
         () => {
             //This is going to be used to get the actual city name from coordinates
-            
             fetchCityName()
         },
         []

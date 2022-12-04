@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Link.css"
-import { logout } from '../helpers/Logout';
 import { googleAuth } from '../helpers/googleAuth';
 
 export const AuthorizedUserNav = () => {
@@ -20,8 +19,9 @@ export const AuthorizedUserNav = () => {
       <AppBar position="static">
         <Toolbar>
           <Link className='link' to='/'><Button color='inherit'>Current Conditions</Button></Link>
-          <Link className='link' to='/History'><Button color='inherit'>Current Location History</Button></Link>
+          <Link className='link' to='/History'><Button color='inherit'>Location History</Button></Link>
           <Link className='link' to='/SavedLocations'><Button color='inherit'>My Locations</Button></Link>
+          <Link className='link' to='/SearchLocations'><Button color='inherit'>Search</Button></Link>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           <Button color="inherit" onClick={() => {onSubmitLogoutGoogle()}}>Logout</Button>
