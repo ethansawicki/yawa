@@ -4,6 +4,8 @@ import './SearchLocations.css'
 
 export const SearchLocations = () => {
     const [search, setSearch] = useState('')
+    
+
   return (
     <div className='search-bar-container'>
         <TextField
