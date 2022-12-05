@@ -1,9 +1,18 @@
 .search-bar-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
     padding-top: 10%;
+    flex-flow: column nowrap;
+    gap: 2rem;
 }
 
 .search-bar {
     width: 50%;
+}
+
+.weather-container {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 2rem;
 }
