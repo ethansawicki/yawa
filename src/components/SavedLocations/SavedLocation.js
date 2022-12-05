@@ -4,7 +4,7 @@ import  ReactWeather, { useVisualCrossing } from 'react-open-weather'
 import { visualCrossingAPI } from '../../apiKeys'
 
 // Im sure i can reuse this on the current location page...
-export const SavedLocation = ({location}) => {
+export const SavedLocation = ({location, userObj}) => {
     const { data } = useVisualCrossing({
         key: visualCrossingAPI,
         lat: location.locationLatitude,
@@ -33,6 +33,7 @@ export const SavedLocation = ({location}) => {
         forecastIconColor:  '#4BC4F7',
     };
 
+    if (location.usersId === userObj.uid) {
   return (
     <div className='weather-widget'>
         <h1>{location.locationSavedName}</h1>
@@ -49,6 +50,9 @@ export const SavedLocation = ({location}) => {
             <Button>Edit</Button>
             <Button>Delete</Button>
         </ButtonGroup>
+        <h3>Tag: {location.tags.tag}</h3>
     </div>
-  )
+  )} else {
+    return null
+  }
 }

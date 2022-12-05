@@ -16,3 +16,7 @@
     flex-flow: column nowrap;
     gap: 2rem;
 }
+
+.modal-name-input {
+    width: 50%;
+}

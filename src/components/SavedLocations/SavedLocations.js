@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { SavedLocation } from './SavedLocation'
-import { Box } from '@mui/material';
 
 
 export const SavedLocations = () => {
   const [savedLocation, setSavedLocation] = useState([])
+  const userStorage = localStorage.getItem('capstone_user')
+  const userObj = JSON.parse(userStorage)
 
   const fetchUserLocations = async () => {
-    const req = await fetch(`http://localhost:8088/usersSavedLocations`)
+    const req = await fetch(`http://localhost:8088/usersSavedLocations?_expand=tags`)
     const resp = await req.json()
     setSavedLocation(resp)
   }
@@ -17,17 +18,16 @@ export const SavedLocations = () => {
       fetchUserLocations()
     },
     []
-  )
-
+  )  
   return (
-    <Box>
-      {
+    <div>
+      { 
         savedLocation.map((location) => {
           return (
-            <SavedLocation key={location.id} location={location} />
+            <SavedLocation key={location.id} userObj={userObj} location={location} />
           )
         })
-      }
-    </Box>
+      } 
+    </div>
   )
 }

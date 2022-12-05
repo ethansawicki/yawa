@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import  ReactWeather,{ useOpenWeather } from 'react-open-weather'
-import { openWeatherAPI } from '../../apiKeys'
+import { CurrentLocationWidget } from './CurrentLocationWidget'
 
 export const CurrentLocation = () => {
     const [lat, setLat] = useState(null)
@@ -19,24 +18,10 @@ export const CurrentLocation = () => {
         },
         []
     )
-
-    const { data, isLoading } = useOpenWeather({
-        key: openWeatherAPI,
-        lat: lat,
-        lon: long,
-        lang: 'en',
-        unit: 'imperial', // values are (metric,imperial)
-      });
     
     return (
         <div>
-            <ReactWeather 
-                data={data}
-                lang="en"
-                isLoading={isLoading}
-                locationLabel='Nashville'
-                unitsLabels={{temperature: "F", windSpeed: 'Mph'}}
-            />
+            <CurrentLocationWidget lat={lat} long={long}/>
         </div>
     )
 }
