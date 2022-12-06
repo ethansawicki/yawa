@@ -4,8 +4,6 @@ import {
     GoogleAuthProvider,
     signOut,
   } from "firebase/auth";
-import { YawaUserCheck } from "../../YawaUserCheck";
-import { YawaLoggedIn } from "../YawaLoggedInView";
   
   // SignIn brings up the google sign in pop up AND works
   // for both signing in AND registering a user

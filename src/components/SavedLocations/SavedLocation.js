@@ -1,10 +1,12 @@
 import { Button, ButtonGroup } from '@mui/material';
 import React from 'react'
 import  ReactWeather, { useVisualCrossing } from 'react-open-weather'
+import { useNavigate } from 'react-router-dom';
 import { visualCrossingAPI } from '../../apiKeys'
 
 // Im sure i can reuse this on the current location page...
-export const SavedLocation = ({location, userObj}) => {
+export const SavedLocation = ({location, userObj, fetchUserLocations}) => {
+  const navigate = useNavigate()
     const { data } = useVisualCrossing({
         key: visualCrossingAPI,
         lat: location.locationLatitude,
@@ -33,6 +35,18 @@ export const SavedLocation = ({location, userObj}) => {
         forecastIconColor:  '#4BC4F7',
     };
 
+    const handleDelete = () => {
+      const deleteSavedLocation = async () => {
+        const res = await fetch(`http://localhost:8088/usersSavedLocations/${location.id}`, {
+          method: "DELETE"
+        })
+        await res.json()
+      }
+      deleteSavedLocation()
+      fetchUserLocations()
+      navigate('/')
+    }
+
     if (location.usersId === userObj.uid) {
   return (
     <div className='weather-widget'>
@@ -48,7 +62,7 @@ export const SavedLocation = ({location, userObj}) => {
             />
         <ButtonGroup variant='contained'className='btn-group'>
             <Button>Edit</Button>
-            <Button>Delete</Button>
+            <Button onClick={() => {handleDelete()}}>Delete</Button>
         </ButtonGroup>
         <h3>Tag: {location.tags.tag}</h3>
     </div>

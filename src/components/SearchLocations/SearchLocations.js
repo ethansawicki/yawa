@@ -1,5 +1,5 @@
 import { Button, TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { openWeatherAPI } from '../../apiKeys'
 import { SearchLocation } from './SearchLocation'
 import './SearchLocations.css'

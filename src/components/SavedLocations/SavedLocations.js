@@ -24,7 +24,7 @@ export const SavedLocations = () => {
       { 
         savedLocation.map((location) => {
           return (
-            <SavedLocation key={location.id} userObj={userObj} location={location} />
+            <SavedLocation key={location.id} userObj={userObj} location={location} fetchUserLocations={fetchUserLocations} />
           )
         })
       } 
