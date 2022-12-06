@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { openWeatherAPI } from '../../apiKeys';
 import  ReactWeather, { useOpenWeather } from 'react-open-weather'
 import { Box, Button, Modal, Radio, TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom'
 
 
 const style = {
@@ -18,6 +19,7 @@ const style = {
   };
 
 export const SearchLocation = ({locations}) => {
+    const navigate = useNavigate()
     const [open, setOpen] = useState(false)
     const [objToDB, setObjToDB] = useState({
         locationSavedName: "",
@@ -71,6 +73,8 @@ export const SearchLocation = ({locations}) => {
             await res.json()
         }
         submitLocation()
+        handleClose()
+        navigate('/SavedLocations')
     }  
   return (
     <div className='weather-container'>

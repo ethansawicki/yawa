@@ -4,6 +4,7 @@ import { SavedLocation } from './SavedLocation'
 
 export const SavedLocations = () => {
   const [savedLocation, setSavedLocation] = useState([])
+  const [filteredLocations, setFilteredLocations] = useState([])
   const userStorage = localStorage.getItem('capstone_user')
   const userObj = JSON.parse(userStorage)
 
@@ -18,13 +19,22 @@ export const SavedLocations = () => {
       fetchUserLocations()
     },
     []
-  )  
+  )
+  
+  useEffect(
+    () => {
+      const filtered = savedLocation.filter(location => userObj.uid === location.usersId )
+      setFilteredLocations(filtered)
+    },
+    [savedLocation]
+  )
+
   return (
     <div>
       { 
-        savedLocation.map((location) => {
+        filteredLocations.map((location) => {
           return (
-            <SavedLocation key={location.id} userObj={userObj} location={location} fetchUserLocations={fetchUserLocations} />
+            <SavedLocation key={location.id} locationId={location.id} userObj={userObj} location={location} fetchUserLocations={fetchUserLocations} />
           )
         })
       } 
