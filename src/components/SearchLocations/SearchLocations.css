@@ -1,0 +1,22 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    padding-top: 10%;
+    flex-flow: column nowrap;
+    gap: 2rem;
+}
+
+.search-bar {
+    width: 50%;
+}
+
+.weather-container {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: 2rem;
+}
+
+.modal-name-input {
+    width: 50%;
+}
