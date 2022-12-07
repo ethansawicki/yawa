@@ -1,0 +1,6 @@
+.weather-widget {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    padding: 5%;
+}

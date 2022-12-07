@@ -15,8 +15,8 @@ export const AuthorizedUserNav = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1}}>
+      <AppBar position="fixed">
         <Toolbar>
           <Link className='link' to='/'><Button color='inherit'>Current Conditions</Button></Link>
           <Link className='link' to='/History'><Button color='inherit'>Location History</Button></Link>

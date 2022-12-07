@@ -72,6 +72,7 @@ export const EditSavedLocation = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
+                    <div>Edit your saved location</div>
                     <div>
                         <TextField
                             className='user-name-input'

@@ -1,0 +1,6 @@
+.current-location {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+    padding: 5%;
+}

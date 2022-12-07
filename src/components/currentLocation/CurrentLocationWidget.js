@@ -10,12 +10,14 @@ export const CurrentLocationWidget = ({lat, long}) => {
         lang: 'en',
         unit: 'imperial', // values are (metric,imperial)
       });
-      
+
+  const isLoading = data  ? false : true 
   return (
     <div>
         <ReactWeather 
                 data={data}
                 lang="en"
+                isLoading={isLoading}
                 locationLabel='Nashville'
                 unitsLabels={{temperature: "F", windSpeed: 'Mph'}}
             />

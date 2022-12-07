@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { CurrentLocationWidget } from './CurrentLocationWidget'
+import './CurrentLocation.css'
 
-export const CurrentLocation = () => {
-    const [lat, setLat] = useState(null)
-    const [long, setLong] = useState(null)
 
-    const getLocation = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLat(position.coords.latitude)
-            setLong(position.coords.longitude)
-        })
-    }
+export const CurrentLocation = ({lat, long}) => {
 
-    useEffect(
-        () => {
-            getLocation()
-        },
-        []
-    )
-    
     return (
-        <div>
+        <div className='current-location'>
             <CurrentLocationWidget lat={lat} long={long}/>
         </div>
     )

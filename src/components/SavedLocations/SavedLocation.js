@@ -3,6 +3,7 @@ import React from 'react'
 import  ReactWeather, { useVisualCrossing } from 'react-open-weather'
 import { Link, useNavigate } from 'react-router-dom';
 import { visualCrossingAPI } from '../../apiKeys'
+import './SavedLocation.css'
 
 export const SavedLocation = ({location, fetchUserLocations}) => {
   const navigate = useNavigate()
@@ -28,8 +29,9 @@ export const SavedLocation = ({location, fetchUserLocations}) => {
 
     return (
       <div className='weather-widget'>
-          <h1>{location.locationSavedName}</h1>
-          <ReactWeather
+          <div><h1>{location.locationSavedName}</h1></div>
+          <div className='widget-div'>
+            <ReactWeather
                 data={data}
                 lang="en"
                 locationLabel={`${location.locationName}`}
@@ -37,10 +39,13 @@ export const SavedLocation = ({location, fetchUserLocations}) => {
                 showForcast
                 type='auto'
               />
+          </div>
+          <div>
           <ButtonGroup variant='contained'className='btn-group'>
             <Link to={`/SavedLocations/${location.id}`}><Button>Edit</Button></Link>
             <Button onClick={() => {handleDelete()}}>Delete</Button>
           </ButtonGroup>
+          </div>
           <h3>Tag: {location.tags.tag}</h3>
       </div>
     )
