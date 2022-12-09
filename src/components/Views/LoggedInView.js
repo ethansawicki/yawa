@@ -7,14 +7,16 @@ import { SavedLocations } from '../SavedLocations/SavedLocations'
 import { SearchLocations } from '../SearchLocations/SearchLocations'
 
 export const LoggedInView = () => {
-  const [lat, setLat] = useState(null)
-  const [long, setLong] = useState(null)
+  const [lat, setLat] = useState(0)
+  const [long, setLong] = useState(0)
 
-  const getLocation = async () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-        setLat(position.coords.latitude)
-        setLong(position.coords.longitude)
-    })
+  const recordPosition = (position) => {
+    setLat(position.coords.latitude)
+    setLong(position.coords.longitude)
+  }
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(recordPosition) 
   }
 
   useEffect(
