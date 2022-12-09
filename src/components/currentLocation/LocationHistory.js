@@ -1,41 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { openWeatherAPI } from '../../apiKeys'
-import { CurrentLocationWidget } from './CurrentLocationWidget'
 
 export const LocationHistory = ({lat, long}) => {
-  const [coords, setCoords] = useState([])
-  const [cityName, setCityName] = useState([])
+  const [history, setHistory] = useState([])
 
-  const fetchCoords = async () => {
-    const req = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=${openWeatherAPI}`)
-    const res = await req.json()
-    setCoords(res)
-  }
-
-  const fetchCityHistory = async () => {
-    const req = await fetch(``)
-    const res = await req.json()
+  const fetchHistory = async () => {
+    const req = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?&aggregateHours=24&startDateTime=2019-06-13T00:00:00&endDateTime=2019-06-20T00:00:00&unitGroup=us&contentType=json&dayStartTime=0:0:00&dayEndTime=0:0:00&location=Nashville-Davidson,Tennessee,US&key=VXWFW7AVK6SL6F9QYNSB2PXTT`)
+    const resp = await req.json()
+    setHistory(resp)
   }
 
   useEffect(
     () => {
-      fetchCoords()
+      fetchHistory()
     },
     []
   )
-  
-  useEffect(
-    () => {
-      const getCityName = coords.map((coors) => {return coors.name && coors.country})
-      setCityName(getCityName)
-    },
-    [coords]
-  )
-  console.log(cityName)
-
+  console.log(history)
   return (
     <div className='current-location'>
-      <CurrentLocationWidget />
+      
     </div>
   )
 }
