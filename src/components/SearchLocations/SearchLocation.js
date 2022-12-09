@@ -95,6 +95,7 @@ export const SearchLocation = ({locations}) => {
         >
             <Box sx={style}>
                     <div>
+                        <h3>Add new location:</h3>
                         <TextField 
                             className='user-name-input' 
                             label="Enter Name for Location" 

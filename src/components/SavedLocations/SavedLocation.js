@@ -1,18 +1,18 @@
-import { ButtonGroup, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import React from 'react'
-import  ReactWeather, { useVisualCrossing } from 'react-open-weather'
+import  ReactWeather, { useOpenWeather } from 'react-open-weather'
 import { Link, useNavigate } from 'react-router-dom';
-import { visualCrossingAPI } from '../../apiKeys'
+import { openWeatherAPI } from '../../apiKeys'
 import './SavedLocation.css'
 
 export const SavedLocation = ({location, fetchUserLocations}) => {
   const navigate = useNavigate()
-    const { data } = useVisualCrossing({
-        key: visualCrossingAPI,
+    const { data } = useOpenWeather({
+        key: openWeatherAPI,
         lat: location.locationLatitude,
         lon: location.locationLongitude,
         lang: 'en',
-        unit: 'us', // values are (metric,us,uk)
+        unit: 'imperial', // values are (metric,us,uk)
       });
 
     const handleDelete = () => {
@@ -40,13 +40,11 @@ export const SavedLocation = ({location, fetchUserLocations}) => {
                 type='auto'
               />
           </div>
-          <div>
-          <ButtonGroup variant='contained'className='btn-group'>
-            <Link to={`/SavedLocations/${location.id}`}><Button>Edit</Button></Link>
-            <Button onClick={() => {handleDelete()}}>Delete</Button>
-          </ButtonGroup>
+          <div className='btn-group-container'>
+            <h3>Tag: {location.tags.tag}</h3>
+            <Link to={`/SavedLocations/${location.id}`}><Button className='btn-group' variant='contained'>Edit</Button></Link>
+            <Button variant='contained' onClick={() => {handleDelete()}} className='btn-group'>Delete</Button>
           </div>
-          <h3>Tag: {location.tags.tag}</h3>
       </div>
     )
 }

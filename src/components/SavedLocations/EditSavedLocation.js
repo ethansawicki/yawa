@@ -72,8 +72,8 @@ export const EditSavedLocation = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <div>Edit your saved location</div>
-                    <div>
+                    <h3>Edit your saved location:</h3>
+                    <div className='text-input'>
                         <TextField
                             className='user-name-input'
                             label="Enter Name for Location"
@@ -88,7 +88,7 @@ export const EditSavedLocation = () => {
                             }
                         ></TextField>
                     </div>
-                    <div>
+                    <div className='radio-group'>
                         <Radio
                             value="1"
                             name='vacation'
