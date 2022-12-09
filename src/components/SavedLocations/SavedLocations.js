@@ -31,12 +31,13 @@ export const SavedLocations = () => {
 
   return (
     <div className='weather-widget'>
-      { 
+      { filteredLocations.length > 0 ?
         filteredLocations.map((location) => {
           return (
-            <SavedLocation key={location.id} locationId={location.id} userObj={userObj} location={location} fetchUserLocations={fetchUserLocations} />
+            <SavedLocation key={`location--${location.id}`} locationId={location.id} userObj={userObj} location={location} fetchUserLocations={fetchUserLocations} />
           )
         })
+        : <h2>You dont have any saved locations... :(</h2>
       } 
     </div>
   )

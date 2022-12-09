@@ -35,12 +35,14 @@ export const SearchLocations = () => {
       <div className='search-btn'><Button className='search-btn' variant='contained' onClick={() => { handleSearchClick() }}>Search</Button></div>
       <div className='weather-widget'>
         {
+          location.length > 0 ?
           location.map((locations, index) => {
             return (
               <SearchLocation key={`location--${index}`} locations={locations} id={index} />
             )
           }
           )
+          : null
         }
         </div>
     </>
