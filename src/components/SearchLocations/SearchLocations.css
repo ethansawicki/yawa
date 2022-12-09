@@ -6,21 +6,46 @@
     gap: 2rem;
 }
 
+.add-btn {
+    padding: 3%;
+}
+
+.weather-widget {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 2%;
+    margin: 2%;
+}
+
 .search-bar {
     width: 50%;
 }
 
-.weather-container {
-    display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
-    gap: 2rem;
+.search-btn {
+    padding-top: 1%;
+    text-align: center;
 }
 
 .modal-name-input {
-    width: 50%;
+    width: 75%;
 }
 
 .user-name-input {
-    width: 50%;
+    width: 100%;
+    align-self: center;
+}
+
+.radio-buttons {
+    padding: 1%;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.tag-h3 {
+    text-align: left;
+    padding-top: 10px;
 }

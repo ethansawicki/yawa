@@ -6,6 +6,7 @@ import { openWeatherAPI } from '../../apiKeys'
 import './SavedLocation.css'
 
 export const SavedLocation = ({location, fetchUserLocations}) => {
+
   const navigate = useNavigate()
     const { data } = useOpenWeather({
         key: openWeatherAPI,

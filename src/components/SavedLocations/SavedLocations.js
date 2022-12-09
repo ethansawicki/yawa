@@ -30,7 +30,7 @@ export const SavedLocations = () => {
   )
 
   return (
-    <div>
+    <div className='weather-widget'>
       { 
         filteredLocations.map((location) => {
           return (

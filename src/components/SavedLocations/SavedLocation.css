@@ -2,10 +2,13 @@
     display: flex;
     flex-flow: column nowrap;
     text-align: center;
-    padding: 5%;
+    padding: 2%;
 }
 
 .btn-group-container {
     padding: 1%;
 }
 
+.radio-group {
+    padding: 1%;
+}

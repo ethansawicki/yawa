@@ -6,6 +6,7 @@ import firebase from "firebase/compat/app"
 import  CssBaseline  from '@mui/material/CssBaseline';
 import { firebaseConfig } from "./apiKeys"
 import { YawaUserCheck } from './YawaUserCheck';
+
 firebase.initializeApp(firebaseConfig)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

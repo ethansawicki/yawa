@@ -17,7 +17,7 @@ const style = {
 
 export const EditSavedLocation = () => {
     const navigate = useNavigate()
-    const {locationId} = useParams()
+    const { locationId } = useParams()
     const [open, setOpen] = useState(true)
     const [editObj, setEdit] = useState({
         id: 0,
@@ -39,7 +39,7 @@ export const EditSavedLocation = () => {
         const resp = await req.json()
         setEdit(resp)
     }
-    
+
     const handleUpdateBtn = () => {
         const updateLocation = async () => {
             const put = {
@@ -72,8 +72,8 @@ export const EditSavedLocation = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <h3>Edit your saved location:</h3>
                     <div className='text-input'>
+                        <h3>Edit your saved location:</h3>
                         <TextField
                             className='user-name-input'
                             label="Enter Name for Location"
@@ -88,6 +88,7 @@ export const EditSavedLocation = () => {
                             }
                         ></TextField>
                     </div>
+                    <h3>Edit Selected Tag:</h3>
                     <div className='radio-group'>
                         <Radio
                             value="1"
@@ -150,7 +151,9 @@ export const EditSavedLocation = () => {
                         </Radio>
                         <label name='vacation'>Dream Spot</label>
                     </div>
-                    <Button variant='contained' onClick={() => {handleUpdateBtn()}}>Update Location</Button>
+                    <div className='submit-btn'>
+                        <Button variant='contained' onClick={() => { handleUpdateBtn() }}>Update Location</Button>
+                    </div>
                 </Box>
             </Modal>
         </div>

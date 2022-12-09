@@ -3,6 +3,7 @@ import  ReactWeather,{ useOpenWeather } from 'react-open-weather'
 import { openWeatherAPI } from '../../apiKeys'
 
 export const CurrentLocationWidget = ({lat, long, locationName}) => {
+
     const { data } = useOpenWeather({
         key: openWeatherAPI,
         lat: lat,
