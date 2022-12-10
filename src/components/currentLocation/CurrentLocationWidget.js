@@ -2,7 +2,8 @@ import React from 'react'
 import  ReactWeather,{ useOpenWeather } from 'react-open-weather'
 import { openWeatherAPI } from '../../apiKeys'
 
-export const CurrentLocationWidget = ({lat, long}) => {
+export const CurrentLocationWidget = ({lat, long, locationName}) => {
+
     const { data } = useOpenWeather({
         key: openWeatherAPI,
         lat: lat,
@@ -10,15 +11,16 @@ export const CurrentLocationWidget = ({lat, long}) => {
         lang: 'en',
         unit: 'imperial', // values are (metric,imperial)
       });
-      
+
   return (
     <div>
-        <ReactWeather 
-                data={data}
-                lang="en"
-                locationLabel='Nashville'
-                unitsLabels={{temperature: "F", windSpeed: 'Mph'}}
-            />
+      <ReactWeather
+        isLoading={lat === 0 ? true : false}
+        data={data}
+        lang="en"
+        locationLabel={`${locationName.map((name) => {return name.name})}`}
+        unitsLabels={{temperature: "F", windSpeed: 'Mph'}}
+      />
     </div>
   )
 }

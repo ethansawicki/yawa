@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { CurrentLocationWidget } from './CurrentLocationWidget'
+import './CurrentLocation.css'
+import { openWeatherAPI } from '../../apiKeys'
 
-export const CurrentLocation = () => {
-    const [lat, setLat] = useState(null)
-    const [long, setLong] = useState(null)
 
-    const getLocation = () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            setLat(position.coords.latitude)
-            setLong(position.coords.longitude)
-        })
-    }
+export const CurrentLocation = ({lat, long}) => {
+    const [locationName, setLocationName] = useState([])
+
+    const fetchLocationName = async () => {
+        const req = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${openWeatherAPI}`)
+        const resp = await req.json()
+        setLocationName(resp)
+      }
 
     useEffect(
         () => {
-            getLocation()
+            fetchLocationName()
         },
-        []
+        [lat, long]
     )
-    
+
     return (
-        <div>
-            <CurrentLocationWidget lat={lat} long={long}/>
+        <div className='current-location'>
+            <CurrentLocationWidget lat={lat} long={long} locationName={locationName}/>
         </div>
     )
 }

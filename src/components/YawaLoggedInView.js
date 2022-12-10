@@ -4,7 +4,7 @@ import { AuthorizedUserNav } from './nav/AuthorizedUserNav';
 import { Authorized } from './Views/Authorized';
 import { LoggedInView } from './Views/LoggedInView';
 
-export const YawaLoggedIn = () => {
+export const YawaLoggedIn = ({successfulLogIn}) => {
 
     return (
       <Routes>
@@ -13,7 +13,7 @@ export const YawaLoggedIn = () => {
           element={
             <Authorized>
               <>
-                <AuthorizedUserNav />
+                <AuthorizedUserNav successfulLogIn={successfulLogIn}/>
                 <LoggedInView />
               </>
             </Authorized>

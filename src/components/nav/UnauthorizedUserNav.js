@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import { googleAuth } from '../helpers/googleAuth';
 
 
-export const UnauthorizedUserNav = () => {
-  const navigate = useNavigate();
+
+export const UnauthorizedUserNav = ({successfulLogIn}) => {
   // Login with Google
  const onSubmitLoginGoogle = async () => {
-    googleAuth.signInRegister(navigate);
+    googleAuth.signInRegister(successfulLogIn);
   };
 
   return (
