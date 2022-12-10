@@ -9,9 +9,10 @@ import { googleAuth } from '../helpers/googleAuth';
 
 
 export const UnauthorizedUserNav = ({successfulLogIn}) => {
+  const navigate = useNavigate()
   // Login with Google
  const onSubmitLoginGoogle = async () => {
-    googleAuth.signInRegister(successfulLogIn);
+    googleAuth.signInRegister(successfulLogIn, navigate);
   };
 
   return (

@@ -3,15 +3,15 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./Link.css"
 import { logout } from '../helpers/Logout';
 
 export const AuthorizedUserNav = ({successfulLogIn}) => {
-
+  const navigate = useNavigate()
 
   const onLogout = () => {
-    logout.logout(successfulLogIn);
+    logout.logout(successfulLogIn, navigate);
     
   };
 
