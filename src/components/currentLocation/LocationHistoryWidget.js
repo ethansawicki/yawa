@@ -1,6 +1,6 @@
 import React from 'react'
-import { ReactWeather, useVisualCrossing } from 'react-open-weather';
-import { visualCrossingAPI } from '../../apiKeys';
+import { ReactWeather } from 'react-open-weather';
+
 
 export const LocationHistoryWidget = ({lat, long}) => {
 
