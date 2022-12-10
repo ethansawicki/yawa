@@ -10,7 +10,7 @@ import {
   
   export const googleAuth = {
     // Works to sign in AND register a user
-    signInRegister: function(successfulLogIn) {
+    signInRegister: function(successfulLogIn, navigate) {
       return new Promise((res) => {
         const provider = new GoogleAuthProvider();
         provider.setCustomParameters({
@@ -27,8 +27,10 @@ import {
             };
             // Add user object to localStorage
             localStorage.setItem("capstone_user", JSON.stringify(userAuth));
-            // Navigate us back home
+            // Trigger state change
             successfulLogIn(true)
+            navigate('/')
+            
           })
           .catch((error) => {
             console.log("Google Sign In Error");
@@ -39,14 +41,15 @@ import {
       });
     },
     // Sign out a user
-    signOut: function(successfulLogIn) {
+    signOut: function(successfulLogIn, navigate) {
       const auth = getAuth();
       signOut(auth)
         .then(() => {
           // Remove user from localStorage
           localStorage.removeItem("capstone_user");
-          // Navigate us back home
+          // Trigger state change 
           successfulLogIn(false);
+          navigate('/')
           console.log("Sign Out Success!");
         })
         .catch((error) => {

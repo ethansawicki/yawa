@@ -74,7 +74,6 @@ export const SearchLocation = ({ locations }) => {
         }
         submitLocation()
         handleClose()
-        navigate('/SavedLocations')
     }
     return (
         <div>
