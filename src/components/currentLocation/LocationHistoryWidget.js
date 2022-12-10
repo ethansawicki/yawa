@@ -6,7 +6,7 @@ export const LocationHistoryWidget = ({lat, long}) => {
 
   return (
     <div>
-        <ReactWeather
+      <ReactWeather
         isLoading={lat === 0 ? true : false}
         data={data}
         lang="en"

@@ -3,15 +3,16 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./Link.css"
-import { googleAuth } from '../helpers/googleAuth';
+import { logout } from '../helpers/Logout';
 
-export const AuthorizedUserNav = () => {
-  const navigate = useNavigate()
+export const AuthorizedUserNav = ({successfulLogIn}) => {
 
-  const onSubmitLogoutGoogle = () => {
-    googleAuth.signOut(navigate);
+
+  const onLogout = () => {
+    logout.logout(successfulLogIn);
+    
   };
 
   return (
@@ -24,7 +25,7 @@ export const AuthorizedUserNav = () => {
           <Link className='link' to='/SearchLocations'><Button color='inherit'>Search</Button></Link>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
-          <Button color="inherit" onClick={() => {onSubmitLogoutGoogle()}}>Logout</Button>
+          <Button color="inherit" onClick={() => {onLogout()}}>Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

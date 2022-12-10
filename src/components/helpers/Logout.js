@@ -4,10 +4,10 @@ import { googleAuth } from "./googleAuth";
 // other methods may work for both.
 
 export const logout = {
-  logout: function(navigate) {
+  logout: function(successfulLogIn) {
     const userRecord = JSON.parse(localStorage.getItem("capstone_user"));
     if (userRecord.type === "google") {
-      googleAuth.signOut(navigate);
+      googleAuth.signOut(successfulLogIn);
     }
   }
 };
