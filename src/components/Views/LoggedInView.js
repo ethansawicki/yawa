@@ -30,8 +30,8 @@ export const LoggedInView = () => {
     <Routes>
         <Route path='/' element={
             <>
-                <CurrentLocation lat={lat} long={long} />
-                <Outlet />
+              <CurrentLocation lat={lat} long={long} />
+              <Outlet />
             </>
         }></Route>
         <Route path='/SavedLocations' element={<SavedLocations />} />

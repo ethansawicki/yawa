@@ -3,6 +3,7 @@ import { openWeatherAPI } from '../../apiKeys';
 import ReactWeather, { useOpenWeather } from 'react-open-weather'
 import { Box, Button, Modal, Radio, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
+import { fetchUserLocations } from '../API/FetchCalls';
 
 
 const style = {
@@ -16,6 +17,26 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+};
+
+const customStyles = {
+	fontFamily:  'Helvetica, sans-serif',
+	gradientStart:  '#02386e',
+	gradientMid:  '#00498d',
+	gradientEnd:  '#0052a2',
+	locationFontColor:  '#FFF',
+	todayTempFontColor:  '#FFF',
+	todayDateFontColor:  '#B5DEF4',
+	todayRangeFontColor:  '#B5DEF4',
+	todayDescFontColor:  '#B5DEF4',
+	todayInfoFontColor:  '#B5DEF4',
+	todayIconColor:  '#FFF',
+	forecastBackgroundColor:  '#FFF',
+	forecastSeparatorColor:  '#DDD',
+	forecastDateColor:  '#777',
+	forecastDescColor:  '#777',
+	forecastRangeColor:  '#777',
+	forecastIconColor:  '#0052a2',
 };
 
 export const SearchLocation = ({ locations }) => {
@@ -71,17 +92,20 @@ export const SearchLocation = ({ locations }) => {
             }
             const res = await fetch(`http://localhost:8088/usersSavedLocations`, post)
             await res.json()
+            fetchUserLocations()
         }
         submitLocation()
         handleClose()
+        setTimeout(() => navigate('/SavedLocations'), 2000)
     }
     return (
         <div>
             <ReactWeather
                 data={data}
+                theme={customStyles}
                 lang="en"
                 isloading={isloading}
-                locationLabel={`${locations.name}, ${locations.state}`}
+                locationLabel={`${locations.name}, ${locations.state}, ${locations.country}`}
                 unitsLabels={{ temperature: "F", windSpeed: 'Mph' }}
                 type='auto'
             />

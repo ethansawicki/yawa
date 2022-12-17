@@ -3,14 +3,14 @@ import { Route, Routes } from 'react-router-dom'
 import { UnauthorizedUserNav } from '../nav/UnauthorizedUserNav'
 import { VisitorView } from './VisitorView'
 
-export const Unauthorized = () => {
+export const Unauthorized = ({successfulLogIn}) => {
   return (
     <Routes>
       <Route
         path="*"
         element={
           <>
-            <UnauthorizedUserNav />
+            <UnauthorizedUserNav successfulLogIn={successfulLogIn} />
             <VisitorView />
           </>
         }

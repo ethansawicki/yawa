@@ -7,6 +7,13 @@ export const YawaUserCheck = () => {
     const userObj = JSON.parse(userStorage)
     const [successfulLogIn, setSuccessfulLogIn] = useState(false)
 
+    useEffect(
+        () => {
+            userObj ? setSuccessfulLogIn(true) : setSuccessfulLogIn(false)
+        },
+        []
+    )
+
     if(userObj) {
         return  <YawaLoggedIn successfulLogIn={setSuccessfulLogIn}/>
     } else {
