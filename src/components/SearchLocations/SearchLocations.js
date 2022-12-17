@@ -20,6 +20,7 @@ export const SearchLocations = () => {
   return (
     <>
     <div className='search-bar-container'>
+    <h2>Search for a city to save</h2>
       <TextField
         id="outlined-basic"
         className='search-bar'

@@ -30,6 +30,7 @@ export const SavedLocations = () => {
 
   return (
     <div className='weather-widget'>
+      <h1>Saved Locations</h1>
       { filteredLocations.length > 0 ?
         filteredLocations.map((location) => {
           return (

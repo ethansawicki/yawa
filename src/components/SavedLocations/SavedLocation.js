@@ -5,6 +5,26 @@ import { Link, useNavigate } from 'react-router-dom';
 import { openWeatherAPI } from '../../apiKeys'
 import './SavedLocation.css'
 
+const customStyles = {
+	fontFamily:  'Helvetica, sans-serif',
+	gradientStart:  '#02386e',
+	gradientMid:  '#00498d',
+	gradientEnd:  '#0052a2',
+	locationFontColor:  '#FFF',
+	todayTempFontColor:  '#FFF',
+	todayDateFontColor:  '#B5DEF4',
+	todayRangeFontColor:  '#B5DEF4',
+	todayDescFontColor:  '#B5DEF4',
+	todayInfoFontColor:  '#B5DEF4',
+	todayIconColor:  '#FFF',
+	forecastBackgroundColor:  '#FFF',
+	forecastSeparatorColor:  '#DDD',
+	forecastDateColor:  '#777',
+	forecastDescColor:  '#777',
+	forecastRangeColor:  '#777',
+	forecastIconColor:  '#0052a2',
+};
+
 export const SavedLocation = ({location, fetchUserLocations}) => {
 
   const navigate = useNavigate()
@@ -30,10 +50,11 @@ export const SavedLocation = ({location, fetchUserLocations}) => {
 
     return (
       <div className='weather-widget'>
-          <div><h1>{location.locationSavedName}</h1></div>
+          <div><h2>{location.locationSavedName}</h2></div>
           <div className='widget-div'>
             <ReactWeather
                 data={data}
+                theme={customStyles}
                 lang="en"
                 locationLabel={`${location.locationName}`}
                 unitsLabels={{temperature: "F", windSpeed: 'Mph'}}

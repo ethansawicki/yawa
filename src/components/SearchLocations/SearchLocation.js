@@ -19,6 +19,26 @@ const style = {
     p: 4,
 };
 
+const customStyles = {
+	fontFamily:  'Helvetica, sans-serif',
+	gradientStart:  '#02386e',
+	gradientMid:  '#00498d',
+	gradientEnd:  '#0052a2',
+	locationFontColor:  '#FFF',
+	todayTempFontColor:  '#FFF',
+	todayDateFontColor:  '#B5DEF4',
+	todayRangeFontColor:  '#B5DEF4',
+	todayDescFontColor:  '#B5DEF4',
+	todayInfoFontColor:  '#B5DEF4',
+	todayIconColor:  '#FFF',
+	forecastBackgroundColor:  '#FFF',
+	forecastSeparatorColor:  '#DDD',
+	forecastDateColor:  '#777',
+	forecastDescColor:  '#777',
+	forecastRangeColor:  '#777',
+	forecastIconColor:  '#0052a2',
+};
+
 export const SearchLocation = ({ locations }) => {
     const navigate = useNavigate()
     const [open, setOpen] = useState(false)
@@ -82,9 +102,10 @@ export const SearchLocation = ({ locations }) => {
         <div>
             <ReactWeather
                 data={data}
+                theme={customStyles}
                 lang="en"
                 isloading={isloading}
-                locationLabel={`${locations.name}, ${locations.state}`}
+                locationLabel={`${locations.name}, ${locations.state}, ${locations.country}`}
                 unitsLabels={{ temperature: "F", windSpeed: 'Mph' }}
                 type='auto'
             />

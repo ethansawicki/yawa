@@ -17,7 +17,7 @@ export const AuthorizedUserNav = ({successfulLogIn}) => {
 
   return (
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <Toolbar>
           <Link className='link' to='/'><Button color='inherit'>Current Conditions</Button></Link>
           <Link className='link' to='/History'><Button color='inherit'>Location History</Button></Link>

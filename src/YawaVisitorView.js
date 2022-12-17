@@ -11,8 +11,8 @@ export const YawaVisitorView = ({successfulLogIn}) => {
         path="*"
         element={
             <>
-                <UnauthorizedUserNav successfulLogIn={successfulLogIn} />
-                <VisitorView />
+              <UnauthorizedUserNav successfulLogIn={successfulLogIn} />
+              <VisitorView />
             </>
         }
       />
