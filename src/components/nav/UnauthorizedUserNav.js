@@ -21,6 +21,7 @@ export const UnauthorizedUserNav = ({successfulLogIn}) => {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
+          <Typography align='center' sx={{flexGrow: 50}}>YAWA</Typography>
           <Button color="inherit" onClick={() => {onSubmitLoginGoogle()}} >Login</Button>
         </Toolbar>
       </AppBar>
