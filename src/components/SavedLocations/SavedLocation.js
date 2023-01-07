@@ -1,5 +1,6 @@
 import { Button } from '@mui/material';
 import React from 'react'
+import { useEffect } from 'react';
 import  ReactWeather, { useOpenWeather } from 'react-open-weather'
 import { Link, useNavigate } from 'react-router-dom';
 import { openWeatherAPI } from '../../apiKeys'
@@ -26,8 +27,6 @@ const customStyles = {
 };
 
 export const SavedLocation = ({location, fetchUserLocations}) => {
-
-  const navigate = useNavigate()
     const { data } = useOpenWeather({
         key: openWeatherAPI,
         lat: location.locationLatitude,
@@ -42,10 +41,9 @@ export const SavedLocation = ({location, fetchUserLocations}) => {
           method: "DELETE"
         })
         await res.json()
+        fetchUserLocations()
       }
       deleteSavedLocation()
-      fetchUserLocations()
-      navigate('/')
     }
 
     return (

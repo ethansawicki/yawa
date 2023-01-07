@@ -3,7 +3,6 @@ import { openWeatherAPI } from '../../apiKeys';
 import ReactWeather, { useOpenWeather } from 'react-open-weather'
 import { Box, Button, Modal, Radio, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
-import { fetchUserLocations } from '../API/FetchCalls';
 
 
 const style = {
@@ -92,11 +91,9 @@ export const SearchLocation = ({ locations }) => {
             }
             const res = await fetch(`http://localhost:8088/usersSavedLocations`, post)
             await res.json()
-            fetchUserLocations()
         }
         submitLocation()
         handleClose()
-        setTimeout(() => navigate('/SavedLocations'), 2000)
     }
     return (
         <div>

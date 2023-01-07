@@ -17,12 +17,13 @@ export const AuthorizedUserNav = ({successfulLogIn}) => {
 
   return (
     <Box sx={{ flexGrow: 1}}>
-      <AppBar position="sticky">
+      <AppBar position="fixed">
         <Toolbar>
           <Link className='link' to='/'><Button color='inherit'>Current Conditions</Button></Link>
-          <Link className='link' to='/History'><Button color='inherit'>Location History</Button></Link>
+          {/* <Link className='link' to='/History'><Button color='inherit'>Location History</Button></Link> */}
           <Link className='link' to='/SavedLocations'><Button color='inherit'>My Locations</Button></Link>
           <Link className='link' to='/SearchLocations'><Button color='inherit'>Search</Button></Link>
+          <Typography align='center' sx={{flexGrow: 5.8}}>YAWA</Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           <Button color="inherit" onClick={() => {onLogout()}}>Logout</Button>
